@@ -15,6 +15,9 @@ API yang digunakan :
 End Point API Job List : 
 - https://docs.google.com/spreadsheets/...
 
+Preview App, Penjelasan App :
+- Youtube : https://www.youtube.com/watch?v=T7C1J6vqDig
+
 Detail Aplikasi : 
 - Masuk dan daftar sesuai email yang di masukkan yang akan terhubung melalui firebase,
 - setelah masuk, akan di pindahkan ke halaman karier yang menampilkan semua job yang ada berdasarkan kreteria yang sesuai.
