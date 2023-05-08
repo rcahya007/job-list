@@ -26,3 +26,10 @@ Detail Aplikasi :
 - bagian profile ada dibagian setelah meng-click personal info pada drawer.
 - ada fitur logout pada bagian drawer dan bagian profile,
 - Ketika keluar aplikasi jika sudah login akan langsung masuk pada bagian karier / dashboard / halaman utama, tetapi jika belum login akan di arahkan kebagian untuk create account atau login.
+
+Preview :
+
+<img src="https://user-images.githubusercontent.com/89686508/236746383-4b237a19-7c49-4fda-b9d7-cd10576aaf62.jpg" width="150" />
+
+https://user-images.githubusercontent.com/89686508/236749670-ce51c514-2901-4e1b-b5aa-a854be451c15.mp4
+
