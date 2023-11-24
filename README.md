@@ -10,7 +10,7 @@ Design :
 
 API yang digunakan : 
 - Firebase
-- Job List : https://sanber.app.rendycahyae.my.id/ 
+- Job List : https://joblist.opwarnet.my.id/api/jobs
 
 End Point API Job List : 
 - https://docs.google.com/spreadsheets/...
