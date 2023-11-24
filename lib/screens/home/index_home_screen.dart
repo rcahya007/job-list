@@ -15,17 +15,10 @@ class IndexHomeScreen extends StatefulWidget {
 class _IndexHomeScreenState extends State<IndexHomeScreen> {
   final authC = Get.find<AuthController>();
   int _selectedIndex = 0;
-  static const TextStyle optionStyle = TextStyle(
-    fontSize: 30,
-    fontWeight: FontWeight.bold,
-    color: Colors.white,
-  );
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    print('Ini Adalah hasil dari : ${authC.streamAuthStatus}');
   }
 
   static final List<Widget> _choseTab = [
@@ -53,7 +46,6 @@ class _IndexHomeScreenState extends State<IndexHomeScreen> {
 
   void _onItemTapped(int index) {
     setState(() {
-      print(index);
       _selectedIndex = index;
     });
   }

@@ -42,7 +42,6 @@ class DrawerCustom extends StatelessWidget {
       ),
       GestureDetector(
         onTap: () {
-          print('Testing tap Aplication');
         },
         child: Container(
           color: Colors.transparent,
@@ -67,7 +66,6 @@ class DrawerCustom extends StatelessWidget {
       ),
       GestureDetector(
         onTap: () {
-          print('Testing tap Lamaran disuka');
         },
         child: Container(
           color: Colors.transparent,
@@ -92,7 +90,6 @@ class DrawerCustom extends StatelessWidget {
       ),
       GestureDetector(
         onTap: () {
-          print('Testing tap portofolio');
         },
         child: Container(
           color: Colors.transparent,
@@ -117,7 +114,6 @@ class DrawerCustom extends StatelessWidget {
       ),
       GestureDetector(
         onTap: () {
-          print('Testing tap Cover Letters');
         },
         child: Container(
           color: Colors.transparent,
@@ -142,7 +138,6 @@ class DrawerCustom extends StatelessWidget {
       ),
       GestureDetector(
         onTap: () {
-          print('Testing tap Settings');
         },
         child: Container(
           color: Colors.transparent,
@@ -168,7 +163,6 @@ class DrawerCustom extends StatelessWidget {
       GestureDetector(
         onTap: () {
           authC.logout();
-          print('Testing tap Logout');
         },
         child: Container(
           color: Colors.transparent,
@@ -205,7 +199,7 @@ class DrawerCustom extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height / 2.5,
+              height: MediaQuery.of(context).size.height / 2.4,
               child: DrawerHeader(
                 padding: EdgeInsets.zero,
                 decoration: BoxDecoration(
@@ -238,7 +232,6 @@ class DrawerCustom extends StatelessWidget {
                             ),
                             GestureDetector(
                               onTap: () {
-                                print('testing tap close drawer');
                                 Navigator.pop(context);
                               },
                               child: const Icon(
@@ -339,7 +332,6 @@ class DrawerController extends GetxController {
 
   @override
   void onInit() {
-    print('ini adalaha user ${user?.displayName}');
     super.onInit();
     authC.loaduserdata().then((value) {
       name.value = value['username'];

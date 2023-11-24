@@ -236,7 +236,6 @@ class JobCategory extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                print('Testing tap di Category Lainnya');
                 Get.dialog(
                   const DialogAllCategory(),
                 );

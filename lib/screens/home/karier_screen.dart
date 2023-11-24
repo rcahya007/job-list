@@ -32,7 +32,6 @@ class _KarierScreenState extends State<KarierScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     authC.loaduserdata().then((value) {
       name.value = value['username'];
@@ -58,69 +57,66 @@ class _KarierScreenState extends State<KarierScreen> {
             children: [
               Column(
                 children: [
-                  Container(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Welcome Back!',
-                              style: subTitle.copyWith(fontSize: 14),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Welcome Back!',
+                            style: subTitle.copyWith(fontSize: 14),
+                          ),
+                          Obx(
+                            () => Text(
+                              name.value,
+                              style: headingTitle.copyWith(fontSize: 18),
                             ),
-                            Obx(
-                              () => Text(
-                                name.value,
-                                style: headingTitle.copyWith(fontSize: 18),
+                          ),
+                        ],
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          keyDrawer.currentState!.openDrawer();
+                        },
+                        child: Stack(
+                          clipBehavior: Clip.none,
+                          children: [
+                            Container(
+                              width: 50,
+                              height: 50,
+                              decoration: BoxDecoration(
+                                color: secondaryColor,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: const Icon(
+                                Icons.person,
+                                size: 40,
                               ),
                             ),
-                          ],
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            print('Testing Open drawer');
-                            keyDrawer.currentState!.openDrawer();
-                          },
-                          child: Stack(
-                            clipBehavior: Clip.none,
-                            children: [
-                              Container(
-                                width: 50,
-                                height: 50,
+                            Positioned(
+                              top: -5,
+                              right: -5,
+                              child: Container(
+                                height: 15,
+                                width: 15,
                                 decoration: BoxDecoration(
-                                  color: secondaryColor,
+                                  color: Colors.red,
                                   borderRadius: BorderRadius.circular(10),
                                 ),
-                                child: const Icon(
-                                  Icons.person,
-                                  size: 40,
+                                child: Text(
+                                  '1',
+                                  style: subTitle.copyWith(
+                                    fontSize: 12,
+                                  ),
+                                  textAlign: TextAlign.center,
                                 ),
                               ),
-                              Positioned(
-                                top: -5,
-                                right: -5,
-                                child: Container(
-                                  height: 15,
-                                  width: 15,
-                                  decoration: BoxDecoration(
-                                    color: Colors.red,
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: Text(
-                                    '1',
-                                    style: subTitle.copyWith(
-                                      fontSize: 12,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
+                            )
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                   const SizedBox(
                     height: 20,
@@ -192,8 +188,8 @@ class _KarierScreenState extends State<KarierScreen> {
                   child: ListView(
                     physics: const BouncingScrollPhysics(),
                     children: [
-                      Column(
-                        children: const [
+                      const Column(
+                        children: [
                           JobCategory(),
                           SizedBox(
                             height: 15,
@@ -205,8 +201,8 @@ class _KarierScreenState extends State<KarierScreen> {
                         builder: (context, snapshot) {
                           if (snapshot.connectionState ==
                               ConnectionState.waiting) {
-                            return Column(
-                              children: const [
+                            return const Column(
+                              children: [
                                 SizedBox(
                                   height: 500,
                                   child: Center(
@@ -284,7 +280,7 @@ class KarrierController extends GetxController {
 
   Future cobaGetJobs() async {
     var hasil = await http.get(
-      Uri.parse("https://www.sanber.app.rendycahyae.my.id/api/jobs"),
+      Uri.parse("https://joblist.opwarnet.my.id/api/jobs"),
       headers: {'Accept': 'application/json'},
     );
     var dataJobsPromo = json.decode(hasil.body)["jobs_promo"];

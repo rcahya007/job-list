@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:heroicons/heroicons.dart';
 import 'package:sanberappflutter/theme.dart';
@@ -25,7 +27,7 @@ class LokerContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(bottom: 10),
-      height: 90,
+      height: 100,
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
         color: Colors.white,
@@ -80,25 +82,32 @@ class LokerContainer extends StatelessWidget {
                     ],
                   ),
                 ),
-                Row(
-                  children: (jobPromotion == 0)
-                      ? []
-                      : [
-                          const HeroIcon(
-                            HeroIcons.sparkles,
-                            size: 15,
-                          ),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            'Dipromosikan',
-                            style: subTitleBlack.copyWith(
-                              fontSize: 10,
-                              fontStyle: FontStyle.italic,
+                Expanded(
+                  child: Row(
+                    children: (jobPromotion == 0)
+                        ? []
+                        : [
+                            const HeroIcon(
+                              HeroIcons.sparkles,
+                              size: 15,
                             ),
-                          ),
-                        ],
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            Expanded(
+                              child: Text(
+                                'Dipromosikan',
+                                style: subTitleBlack.copyWith(
+                                  fontSize: 10,
+                                  fontStyle: FontStyle.italic,
+                                ),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                softWrap: false,
+                              ),
+                            ),
+                          ],
+                  ),
                 ),
               ],
             ),
@@ -150,63 +159,70 @@ class LokerContainer extends StatelessWidget {
                     ),
                   ],
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: (jobSalary == 0)
-                          ? [
-                              const HeroIcon(
-                                HeroIcons.currencyDollar,
-                                size: 14,
-                                style: HeroIconStyle.solid,
-                              ),
-                              const SizedBox(
-                                width: 5,
-                              ),
-                              Text(
-                                "Negotiable",
-                                style: subTitleBlack.copyWith(
-                                  fontSize: 9,
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: (jobSalary == 0)
+                            ? [
+                                const HeroIcon(
+                                  HeroIcons.currencyDollar,
+                                  size: 14,
+                                  style: HeroIconStyle.solid,
                                 ),
-                              ),
-                            ]
-                          : [
-                              const HeroIcon(
-                                HeroIcons.currencyDollar,
-                                size: 14,
-                                style: HeroIconStyle.solid,
-                              ),
-                              const SizedBox(
-                                width: 5,
-                              ),
-                              Text(
-                                CurrencyFormat.convertToIdr(jobSalary, 0),
-                                style: subTitleBlack.copyWith(
-                                  fontSize: 9,
+                                const SizedBox(
+                                  width: 5,
                                 ),
-                              ),
-                            ],
-                    ),
-                    Row(
-                      children: [
-                        const HeroIcon(
-                          HeroIcons.informationCircle,
-                          size: 14,
-                          style: HeroIconStyle.solid,
-                        ),
-                        const SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          'Terakhir diperbarui $tampungDate hari yang lalu',
-                          style: subTitleBlack.copyWith(
-                            fontSize: 9,
+                                Text(
+                                  "Negotiable",
+                                  style: subTitleBlack.copyWith(
+                                    fontSize: 9,
+                                  ),
+                                ),
+                              ]
+                            : [
+                                const HeroIcon(
+                                  HeroIcons.currencyDollar,
+                                  size: 14,
+                                  style: HeroIconStyle.solid,
+                                ),
+                                const SizedBox(
+                                  width: 5,
+                                ),
+                                Text(
+                                  CurrencyFormat.convertToIdr(jobSalary, 0),
+                                  style: subTitleBlack.copyWith(
+                                    fontSize: 9,
+                                  ),
+                                ),
+                              ],
+                      ),
+                      Row(
+                        children: [
+                          const HeroIcon(
+                            HeroIcons.informationCircle,
+                            size: 14,
+                            style: HeroIconStyle.solid,
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          Expanded(
+                            child: Text(
+                              'Terakhir diperbarui $tampungDate hari yang lalu',
+                              style: subTitleBlack.copyWith(
+                                fontSize: 9,
+                              ),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              softWrap: false,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
                 Container(
                   height: 25,

@@ -23,8 +23,7 @@ class _DetailJobScreenState extends State<DetailJobScreen>
 
   Future getDetailJob() async {
     var fetch = await http.get(
-      Uri.parse(
-          "https://www.sanber.app.rendycahyae.my.id/api/jobs/${widget.id}"),
+      Uri.parse("https://joblist.opwarnet.my.id/api/jobs/${widget.id}"),
       headers: {'Accept': 'application/json'},
     );
     var data = json.decode(fetch.body)["data"];
@@ -36,14 +35,12 @@ class _DetailJobScreenState extends State<DetailJobScreen>
 
   @override
   void initState() {
-    // TODO: implement initState
     _tabController = TabController(length: 4, vsync: this);
     super.initState();
   }
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     _tabController?.dispose();
   }
@@ -106,37 +103,42 @@ class _DetailJobScreenState extends State<DetailJobScreen>
                                 color: Colors.white,
                               ),
                             ),
-                            Column(
-                              children: [
-                                Container(
-                                  height: 100,
-                                  width: 100,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(100),
-                                    color: secondaryColor,
+                            Expanded(
+                              child: Column(
+                                children: [
+                                  Container(
+                                    height: 100,
+                                    width: 100,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(100),
+                                      color: secondaryColor,
+                                    ),
+                                    child: const HeroIcon(
+                                      HeroIcons.buildingOffice,
+                                      size: 75,
+                                    ),
                                   ),
-                                  child: const HeroIcon(
-                                    HeroIcons.buildingOffice,
-                                    size: 75,
+                                  const SizedBox(
+                                    height: 5,
                                   ),
-                                ),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                                Text(
-                                  jobDetail[0]['job_title'],
-                                  style: headingTitle.copyWith(
-                                    fontSize: 18,
+                                  Text(
+                                    jobDetail[0]['job_title'],
+                                    style: headingTitle.copyWith(
+                                      fontSize: 18,
+                                    ),
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    softWrap: false,
                                   ),
-                                ),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                                Text(
-                                  jobDetail[0]['company_name'],
-                                  style: subTitle.copyWith(fontSize: 12),
-                                ),
-                              ],
+                                  const SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(
+                                    jobDetail[0]['company_name'],
+                                    style: subTitle.copyWith(fontSize: 12),
+                                  ),
+                                ],
+                              ),
                             ),
                             Column(
                               children: [
@@ -287,8 +289,7 @@ class _DetailJobScreenState extends State<DetailJobScreen>
                                   (jobDetail[0]['job_salary'] == 0)
                                       ? 'Negotiable'
                                       : CurrencyFormat.convertToIdr(
-                                          int.parse(jobDetail[0]['job_salary']),
-                                          0),
+                                          jobDetail[0]['job_salary'], 0),
                                   style: subTitle.copyWith(
                                     fontSize: 12,
                                   ),
@@ -436,16 +437,12 @@ class _DetailJobScreenState extends State<DetailJobScreen>
                                                     width: 10,
                                                   ),
                                                   Expanded(
-                                                    child: Container(
-                                                      child: Text(
-                                                        job,
-                                                        textAlign:
-                                                            TextAlign.left,
-                                                        softWrap: true,
-                                                        style:
-                                                            subTitle.copyWith(
-                                                          fontSize: 12,
-                                                        ),
+                                                    child: Text(
+                                                      job,
+                                                      textAlign: TextAlign.left,
+                                                      softWrap: true,
+                                                      style: subTitle.copyWith(
+                                                        fontSize: 12,
                                                       ),
                                                     ),
                                                   )
@@ -547,16 +544,12 @@ class _DetailJobScreenState extends State<DetailJobScreen>
                                                     width: 10,
                                                   ),
                                                   Expanded(
-                                                    child: Container(
-                                                      child: Text(
-                                                        job,
-                                                        textAlign:
-                                                            TextAlign.left,
-                                                        softWrap: true,
-                                                        style:
-                                                            subTitle.copyWith(
-                                                          fontSize: 12,
-                                                        ),
+                                                    child: Text(
+                                                      job,
+                                                      textAlign: TextAlign.left,
+                                                      softWrap: true,
+                                                      style: subTitle.copyWith(
+                                                        fontSize: 12,
                                                       ),
                                                     ),
                                                   )
@@ -898,7 +891,6 @@ class _DetailJobScreenState extends State<DetailJobScreen>
                                     ),
                                   ],
                                 ),
-
                                 // second tab bar view widget
                                 const Center(
                                   child: Text(
@@ -906,6 +898,7 @@ class _DetailJobScreenState extends State<DetailJobScreen>
                                     style: TextStyle(
                                       fontSize: 25,
                                       fontWeight: FontWeight.w600,
+                                      color: Colors.white,
                                     ),
                                   ),
                                 ),

@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:sanberappflutter/screens/detail_job/detail_job_screen.dart';
 import '../loker_container.dart';
@@ -11,8 +13,8 @@ class LowonganDigitalMarketing extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (jobsDigitalMarketing == null) {
-      return Column(
-        children: const [
+      return const Column(
+        children: [
           SizedBox(
             height: 200,
             child: Center(child: CircularProgressIndicator()),
@@ -67,8 +69,7 @@ class LowonganDigitalMarketing extends StatelessWidget {
                     Navigator.push(context, MaterialPageRoute(
                       builder: (context) {
                         return DetailJobScreen(
-                          id: int.parse(
-                              jobsDigitalMarketing![index]['jobs_id']),
+                          id: jobsDigitalMarketing![index]['jobs_id'],
                         );
                       },
                     ));
@@ -77,12 +78,10 @@ class LowonganDigitalMarketing extends StatelessWidget {
                     jobTitle: jobsDigitalMarketing![index]['job_title'],
                     companyName: jobsDigitalMarketing![index]['company_name'],
                     jobPlace: jobsDigitalMarketing![index]['job_place'],
-                    jobSalary:
-                        int.parse(jobsDigitalMarketing![index]['job_salary']),
+                    jobSalary: jobsDigitalMarketing![index]['job_salary'],
                     jobQualification: jobsDigitalMarketing![index]
                         ['job_qualification'],
-                    jobPromotion: int.parse(
-                        jobsDigitalMarketing![index]['job_promotion']),
+                    jobPromotion: jobsDigitalMarketing![index]['job_promotion'],
                     tampungDate: tampungDate,
                   ),
                 );

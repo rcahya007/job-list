@@ -449,7 +449,6 @@ class SignUpController extends GetxController {
 
   @override
   void onClose() {
-    // TODO: implement onClose
     emailC.dispose();
     passC.dispose();
     nameC.dispose();
